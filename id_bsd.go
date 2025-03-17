@@ -15,7 +15,7 @@ const hostidPath = "/etc/hostid"
 // If there is an error an empty string is returned.
 func machineID() (string, error) {
 	id, err := readHostid()
-	if err != nil {
+	if err != nil || id == "" {
 		// try fallback
 		id, err = readKenv()
 	}
